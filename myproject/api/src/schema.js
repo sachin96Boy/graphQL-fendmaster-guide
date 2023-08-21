@@ -1,26 +1,26 @@
-import { gql } from 'apollo-server';
+import { gql } from "graphql-tag";
 
 /**
  * Type Definitions for our Schema using the SDL.
  */
 const typeDefs = gql`
-  
-  type User{
-    id: Id!,
+  type User {
+    id: Id!
     userName: String!
   }
-  type pet{
+  type Pet {
     id: Id!
     createdAt: String!
     name: String
     type: String
   }
-
-  type Query{
-    pets: [Pet]!
-    
+  type Id{
+    id: String
   }
 
+  type Query {
+    pets: [Pet]!
+  }
 `;
 
-export default typeDefs
+export default typeDefs;

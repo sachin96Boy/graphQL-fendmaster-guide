@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 
-const createPetModel = (db) => {
+export const createPetModel = (db) => {
   return {
     findMany(filter) {
       return db.get("pet").filter(filter).value();
@@ -20,4 +20,4 @@ const createPetModel = (db) => {
   };
 };
 
-export { createPetModel };
+

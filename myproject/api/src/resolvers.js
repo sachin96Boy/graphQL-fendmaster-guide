@@ -3,10 +3,10 @@
  * the type definitions in your scheama
  */
 
-export const Query = {
-    demo(_, __, newmodel){
-        newmodel.models.pet.findMany({})
-    }
+const Query = {
+  pets(_, __, newModel) {
+    newModel.models.pet.findMany({});
+  },
 };
 // export const Mutation = {};
 // export const Pet = {
@@ -32,3 +32,4 @@ export const Query = {
 //   },
 // };
 // export const User = {};
+export default Query;
