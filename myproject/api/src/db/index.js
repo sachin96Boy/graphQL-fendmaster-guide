@@ -8,7 +8,6 @@ import { createUserModel } from "./user.js";
 
 const _dirName = dirname(fileURLToPath(import.meta.url));
 const file = join(_dirName, "db.json");
-// console.log(file);
 
 const adapter = new JSONFile(file);
 const defaultData = { user: {}, pet: [] };

@@ -3,7 +3,7 @@
  * the type definitions in your scheama
  */
 
-const Query = {
+const query = {
   pets(_, __, newModel) {
     newModel.models.pet.findMany({});
   },
@@ -32,4 +32,9 @@ const Query = {
 //   },
 // };
 // export const User = {};
-export default Query;
+const resolver = {
+  Query: {
+    pets: query,
+  },
+};
+export default resolver;

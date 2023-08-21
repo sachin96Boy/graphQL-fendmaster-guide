@@ -9,6 +9,7 @@ import newModel from "./db/index.js";
 
 import typeDefs from "./schema.js";
 import resolvers from "./resolvers.js";
+import bodyParser from "body-parser";
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -22,10 +23,11 @@ await server.start();
 
 app.use(
   cors(),
+  bodyParser.json(),
   expressMiddleware(server, {
     context() {
       return {
-        newModel
+        newModel,
       };
     },
   })

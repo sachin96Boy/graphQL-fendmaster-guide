@@ -1,22 +1,22 @@
-import { gql } from "graphql-tag";
+import gql from "graphql-tag";
 
 /**
  * Type Definitions for our Schema using the SDL.
  */
 const typeDefs = gql`
   type User {
-    id: Id!
+    id: String!
     userName: String!
   }
   type Pet {
-    id: Id!
+    id: String!
     createdAt: String!
     name: String
     type: String
   }
-  type Id{
-    id: String
-  }
+  #   type Id {
+  #     id: String
+  #   }
 
   type Query {
     pets: [Pet]!
