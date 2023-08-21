@@ -15,17 +15,17 @@ const typeDefs = gql`
 `;
 const resolver = {
     Query: {
-        me(){
+        me:()=>{
             return {
-                email: 'sachinsupunthaka@gmail,com',
+                email: 'sachinsupunthaka@gmail.com',
                 avatar: 'http://voda.png',
                 friends:[
 
                 ]
             }
         }
-    }
-}
+    },
+};
 
 const server = new ApolloServer({
     typeDefs,
