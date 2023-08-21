@@ -33,7 +33,7 @@ It's the spec that describes a declarative query language that your clients can 
 
 ### Tools
 
-1. Prism
+1. Prisma
 
 
 
