@@ -2,19 +2,22 @@ import { nanoid } from "nanoid";
 
 export const createPetModel = (db) => {
   return {
-    findMany(filter) {
-      return db.get("pet").filter(filter).value();
+    async findMany(filter) {
+      await db.read()
+      return db.chain.get("pet").filter(filter).value();
     },
-    findOne(filter) {
-      return db.get("pet").find(filter).value();
+    async findOne(filter) {
+      await db.read();
+      return db.chain.get("pet").find(filter).value();
     },
-    create(pet) {
+    async create(pet) {
       const newPet = {
         id: nanoid(),
         createdAt: Date.now(),
         ...pet,
       };
-      db.get("pet").push(newPet).write();
+      await db.read();
+      db.chain.get("pet").push(newPet).write();
       return newPet;
     },
   };

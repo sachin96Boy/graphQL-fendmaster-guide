@@ -4,9 +4,13 @@
  */
 
 const query = {
-  pets(_, __, newModel) {
-    newModel.models.pet.findMany({});
+  pets(_, {input}, newModel) {
+    // console.log(newModel.newModel.models.pet)
+    return newModel.newModel.models.pet.findMany(input);
   },
+  pet(_, {input}, newModel){
+    return newModel.newModel.models.pet.findOne(input);
+  }
 };
 // export const Mutation = {};
 // export const Pet = {
@@ -34,7 +38,8 @@ const query = {
 // export const User = {};
 const resolver = {
   Query: {
-    pets: query,
+    pets: query.pets,
+    pet: query.pet
   },
 };
 export default resolver;

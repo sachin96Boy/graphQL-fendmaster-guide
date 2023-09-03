@@ -3,5 +3,18 @@
     "id": "njgsffnsdfnaknadmaskfnip",
     "username": "sachin96Boy"
   },
-  "pet": []
+  "pet": [
+    {
+      "id": "1",
+      "createdAt": "3452",
+      "name": "Moose",
+      "type": "DOG"
+    },
+    {
+      "id": "2",
+      "createdAt": "9750",
+      "name": "Dolly",
+      "type": "CAT"
+    }
+  ]
 }
