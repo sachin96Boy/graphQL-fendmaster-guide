@@ -10,7 +10,7 @@ const typeDefs = gql`
   }
 
   type shoe {
-    brand: String!,
+    brand: String!
     size: Int!
   }
 
@@ -19,19 +19,27 @@ const typeDefs = gql`
     size: Int
   }
 
+  input NewShoeInput {
+    brand: String
+    size: Int!
+  }
+
   type Query {
     me: User!
     shoes(input: shoesInput): [shoe]
+  }
 
+  type Mutation {
+    newShoe(input: NewShoeInput!): shoe!
   }
 `;
 const resolver = {
   Query: {
-    shoes: (_, {input})=>{
+    shoes: (_, { input }) => {
       return [
-        {brand: "nike", size: 12},
-        {brand: "volo", size: 19},
-      ].filter(shoe=> shoe.brand === input.brand)
+        { brand: "nike", size: 12 },
+        { brand: "volo", size: 19 },
+      ].filter((shoe) => shoe.brand === input.brand);
     },
     me: () => {
       return {
@@ -41,11 +49,20 @@ const resolver = {
       };
     },
   },
+  Mutation: {
+    newShoe: (_, { input }) => {
+      // add logic here
+      // I'm just going to return it as of now
+      return input;
+    },
+  },
 };
 
 const server = new ApolloServer({
   typeDefs,
   resolver,
+  
+  
 });
 
 const { url } = await startStandaloneServer(server);
