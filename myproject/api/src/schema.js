@@ -23,9 +23,19 @@ const typeDefs = gql`
   #     id: String
   #   }
 
-  type Query { 
+  input NewPetInput {
+    name: String
+    type: String
+  }
+
+  type Query {
     pets(input: PetInput): [Pet]!
     pet(input: PetInput): Pet
+  }
+
+  # create a mutation
+  type Mutation {
+    newPet(input: NewPetInput): Pet!
   }
 `;
 

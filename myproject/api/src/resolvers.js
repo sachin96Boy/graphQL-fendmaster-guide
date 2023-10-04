@@ -4,13 +4,20 @@
  */
 
 const query = {
-  pets(_, {input}, newModel) {
+  pets(_, { input }, newModel) {
     // console.log(newModel.newModel.models.pet)
     return newModel.newModel.models.pet.findMany(input);
   },
-  pet(_, {input}, newModel){
+  pet(_, { input }, newModel) {
     return newModel.newModel.models.pet.findOne(input);
-  }
+  },
+};
+
+const mutation = {
+  newPet(_, { input }, ctx) {
+    const pet = ctx.newModel.models.pet.create(input);
+    return pet;
+  },
 };
 // export const Mutation = {};
 // export const Pet = {
@@ -39,7 +46,10 @@ const query = {
 const resolver = {
   Query: {
     pets: query.pets,
-    pet: query.pet
+    pet: query.pet,
+  },
+  Mutation: {
+    newPet: mutation.newPet,
   },
 };
 export default resolver;
